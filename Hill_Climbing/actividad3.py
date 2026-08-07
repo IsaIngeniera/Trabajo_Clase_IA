@@ -6,6 +6,31 @@ Actualmente un hospital solo se mueve una celda.
  RTA: Al crear diferentes movimientos hasta 2 celdas, se generan mas del doble de vecinos que 
  un movimiento de solo una 1 celda, aumentando mas el procesamiento del codigo. Por otro lado, 
  el resultado no mejora significativamente. (se comparo el resultado del Hill climbing normal con este codigo para ese hecho)
+
+PREGUNTAS DE CIERRE:
+ 
+1. ¿Por qué Hill Climbing no necesita construir todo el espacio de búsqueda?
+ No necesita construir todo el espacio, porque el algoritmo es de busqueda voraz, es decir va 
+ comparando sus vecinos y buscando el valor entre ellos que sea menor,
+ no necesita mapear todo el grafo disponible entre el espacio, y no lo recorre todo,
+ sino hasta que llegue al punto local mínimo.
+
+2. ¿El resultado depende del estado inicial?
+ El resultado sí está dependiendo del estado inicial, 
+ puesto que de ese punto, empieza a comparar con sus vecinos, por lo tanto, 
+ si desde el inicio esta atrapado en una meceta no podra tener el mismo resultado de costo
+ si queda cerca de un punto local minimo.
+
+3. ¿Random Restart garantiza encontrar el óptimo global?
+ No lo garantiza, pero puede aumentar la probabilidad de encontrarlo 
+si la cantidad de reinicios es lo suficiente mayor para que el estado inicial este en diferentes puntos
+del mapa, y cubra el mayor espacio para encontrar el optimo global.
+
+4. ¿Qué información se pierde al conservar únicamente el mejor vecino?
+ Puede perderse  los otros vecinos que estaban cerca del mejor, es decir las trayectorias alternativas
+ que podemos utlizar si nos encontramos con un callejon sin salida al obtener solo la informacion del
+ mejor vecino
+
 """
 
 
