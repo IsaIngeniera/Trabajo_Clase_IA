@@ -1,3 +1,14 @@
+"""
+Actualmente un hospital solo se mueve una celda.
+ Crea un vecindario que permita movimientos de hasta dos celdas.
+ ¿Mejora el resultado? ¿Cuánto aumenta el número de vecinos evaluados?
+
+ RTA: Al crear diferentes movimientos hasta 2 celdas, se generan mas del doble de vecinos que 
+ un movimiento de solo una 1 celda, aumentando mas el procesamiento del codigo. Por otro lado, 
+ el resultado no mejora significativamente. (se comparo el resultado del Hill climbing normal con este codigo para ese hecho)
+"""
+
+
 import random
 import numpy as np
 import matplotlib.pyplot as plt
@@ -110,15 +121,7 @@ def neighbors_of_state(height, width, houses, hospitals):
     return neighbors
 
 
-"""
-Actualmente un hospital solo se mueve una celda.
- Crea un vecindario que permita movimientos de hasta dos celdas.
- ¿Mejora el resultado? ¿Cuánto aumenta el número de vecinos evaluados?
 
- RTA: Al crear diferentes movimientos hasta 2 celdas, se generan mas del doble de vecinos que 
- un movimiento de solo una 1 celda, aumentando mas el procesamiento del codigo. Por otro lado, 
- el resultado no mejora significativamente. 
-"""
 
 neighbors = neighbors_of_state(HEIGHT, WIDTH, houses, initial_hospitals)
 print('Número de vecinos:', len(neighbors))
