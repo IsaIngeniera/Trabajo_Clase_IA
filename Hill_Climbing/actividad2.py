@@ -1,3 +1,35 @@
+
+"""
+En este codigo, se agrego una grafica que muestra la relacion con numero de hospitales y el costo menor. 
+
+Registra el mejor costo y discute si agregar hospitales produce siempre la misma reducción.
+El mejor costo como hemos visto es cuando agregamos mas hospitales, y como vemos en la ultima grafica, 
+aumento de hospitales conlleva a una disminucion de costos.
+
+1. ¿Por qué Hill Climbing no necesita construir todo el espacio de búsqueda?
+ No necesita construir todo el espacio porque el algoritmo es de busqueda voraz, es decir va 
+ comparando sus vecinos y buscando el valor entre ellos que sea menor,
+ no necesita mapear todo el grafo disponible entre el espacio, y no lo recorre todo,
+ sino hasta que llegue al punto local mínimo.
+
+2. ¿El resultado depende del estado inicial?
+ El resultado sí está dependiendo del estado inicial, 
+ puesto que de ese punto, empieza a comparar con sus vecinos, por lo tanto, 
+ si desde el inicio esta atrapado en una meceta no podra tener el mismo resultado de costo
+ si queda cerca de un punto local minimo.
+
+3. ¿Random Restart garantiza encontrar el óptimo global?
+Tu respuesta: No lo garantiza, pero puede aumentar la probabilidad de encontrarlo 
+si la cantidad de reinicios es lo suficiente mayor para que el estado inicial este en diferentes puntos
+del mapa, y cubra el mayor espacio para encontrar el optimo global.
+
+4. ¿Qué información se pierde al conservar únicamente el mejor vecino?
+ Puede perderse  los otros vecinos que estaban cerca del mejor, es decir las trayectorias alternativas
+ que podemos utlizar si nos encontramos con un callejon sin salida al obtener solo la informacion del
+ mejor vecino
+
+"""
+
 import random
 import numpy as np
 import matplotlib.pyplot as plt
@@ -107,28 +139,7 @@ def neighbors_of_state(height, width, houses, hospitals):
 
     return neighbors
 
-#PERO WAIT, QUE ES NEIGHBORS????
-"""
-Neighbors va a guardar diferentes listas de ubicaciones de hospitales 
-pues son los movimientos posibles que el hospital puede hacer.
-ejemplo: 
-initial\_hospitals = { (1, 2), (5, 8) }
-se recorre el hospital y en ese primer hospital salen 4 opciones de moviemiento 
-(si no estan fuera de limites)
-y en cada mov posible se crea una copia de hospital, para guardar el candidato
 
-como queda si tenemos por cada hospital 4 mov disponibles: 
-neighbors = [
-    { (0, 2), (5, 8) },  <-- Opción 1: Hospital 1 subió
-    { (2, 2), (5, 8) },  <-- Opción 2: Hospital 1 bajó
-    { (1, 1), (5, 8) },  <-- Opción 3: Hospital 1 fue a la izquierda
-    { (1, 3), (5, 8) },  <-- Opción 4: Hospital 1 fue a la derecha
-    { (1, 2), (4, 8) },  <-- Opción 5: Hospital 2 subió
-    { (1, 2), (6, 8) },  <-- Opción 6: Hospital 2 bajó
-    { (1, 2), (5, 7) },  <-- Opción 7: Hospital 2 fue a la izquierda
-    { (1, 2), (5, 9) }   <-- Opción 8: Hospital 2 fue a la derecha
-]
-"""
 
 neighbors = neighbors_of_state(HEIGHT, WIDTH, houses, initial_hospitals)
 print('Número de vecinos:', len(neighbors))
@@ -253,7 +264,7 @@ plot_state(HEIGHT, WIDTH, houses, best['solution'],
 
 final_costs = [run['final_cost'] for run in runs]
 
-
+#AQUI SE AÑADEN FUNCIONES PARA MOSTRAR EL MEJOR K EN GRAFICA
 def separarK (runs, num_hospital):
     run = []
     k = []
@@ -307,7 +318,7 @@ k5 = minTupla(generarTupla(stringHospital,stringCosto,(separarK(runs, 5))))
 final_cost = [k1[1],k2[1],k3[1],k4[1],k5[1]]
 k_hospital = [1,2,3,4,5]
 
-          
+ #GRAFICA DE NUMERO DE HOSPITALES
 plt.figure(figsize=(8, 4))
 plt.plot(k_hospital,final_cost, marker='o')
 plt.axhline(min(final_cost), linestyle='--', label='Mejor costo')
