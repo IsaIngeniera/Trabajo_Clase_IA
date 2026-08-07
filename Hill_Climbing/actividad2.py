@@ -5,29 +5,6 @@ En este codigo, se agrego una grafica que muestra la relacion con numero de hosp
 Registra el mejor costo y discute si agregar hospitales produce siempre la misma reducción.
 El mejor costo como hemos visto es cuando agregamos mas hospitales, y como vemos en la ultima grafica, 
 aumento de hospitales conlleva a una disminucion de costos.
-
-1. ¿Por qué Hill Climbing no necesita construir todo el espacio de búsqueda?
- No necesita construir todo el espacio porque el algoritmo es de busqueda voraz, es decir va 
- comparando sus vecinos y buscando el valor entre ellos que sea menor,
- no necesita mapear todo el grafo disponible entre el espacio, y no lo recorre todo,
- sino hasta que llegue al punto local mínimo.
-
-2. ¿El resultado depende del estado inicial?
- El resultado sí está dependiendo del estado inicial, 
- puesto que de ese punto, empieza a comparar con sus vecinos, por lo tanto, 
- si desde el inicio esta atrapado en una meceta no podra tener el mismo resultado de costo
- si queda cerca de un punto local minimo.
-
-3. ¿Random Restart garantiza encontrar el óptimo global?
-Tu respuesta: No lo garantiza, pero puede aumentar la probabilidad de encontrarlo 
-si la cantidad de reinicios es lo suficiente mayor para que el estado inicial este en diferentes puntos
-del mapa, y cubra el mayor espacio para encontrar el optimo global.
-
-4. ¿Qué información se pierde al conservar únicamente el mejor vecino?
- Puede perderse  los otros vecinos que estaban cerca del mejor, es decir las trayectorias alternativas
- que podemos utlizar si nos encontramos con un callejon sin salida al obtener solo la informacion del
- mejor vecino
-
 """
 
 import random
