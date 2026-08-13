@@ -54,3 +54,30 @@ Estas dos actividades son partes fundamentales del algoritmo genético:
 En conjunto, permiten que el algoritmo evolucione hacia mejores soluciones, mezclando exploración y explotación.
 
 
+## Actividad 3
+
+Para evolucionar una **frase objetivo** en lugar de una cadena binaria, cambiamos tres piezas del algoritmo, dejando intacta la lógica general (selección, cruce, elitismo):
+
+1. **Cromosoma**: en vez de una lista de bits, cada individuo es una lista de caracteres (letras y espacio). Se genera eligiendo caracteres al azar de un alfabeto.
+2. **Fitness**: ya no contamos unos, sino el número de posiciones donde el carácter del individuo coincide con el de la frase objetivo. El óptimo se alcanza cuando el fitness es igual a la longitud de la frase.
+3. **Mutación**: en OneMax invertíamos un bit (0↔1). Aquí no existe un "opuesto" natural, así que la mutación **reemplaza** el carácter por otro elegido al azar del alfabeto.
+
+El **cruce de un punto** y la **selección por torneo** se reutilizan tal cual, porque ambos operan sobre listas genéricas sin importar qué representen sus elementos (bits o caracteres). Con esto se concluye que:  los operadores de selección y cruce son independientes de la representación, mientras que la codificación del cromosoma, el fitness y (en este caso) la mutación sí dependen del problema.
+
+
+##  Actividad 4
+
+El **elitismo** copia directamente al mejor individuo de la generación actual hacia la siguiente. Esto garantiza que el mejor fitness registrado **nunca puede empeorar** de una generación a otra: en el peor caso se mantiene igual (si nadie más lo supera), pero jamás disminuye.
+
+Sin elitismo, **toda** la nueva población —incluido el lugar donde vivía el mejor individuo— se genera por selección, cruce y mutación. Aunque la selección por torneo tiende a favorecer a los individuos más aptos, no hay ninguna garantía de que el mejor individuo sobreviva intacto: puede no ser elegido como padre, puede perder su buena combinación de genes al cruzarse, o puede ser dañado por la mutación. Por eso el mejor fitness de la población **sí puede bajar** de una generación a la siguiente cuando no hay elitismo.
+
+En la práctica esto significa:
+
+- **Con elitismo**: convergencia más rápida y estable, la curva de "mejor fitness" es monótona no decreciente. Riesgo: puede favorecer convergencia prematura si el "elite" domina la población.
+- **Sin elitismo**: la curva de "mejor fitness" puede tener caídas temporales (oscila), y en promedio se necesitan más generaciones para alcanzar el óptimo, aunque también se mantiene algo más de diversidad genética al no proteger siempre a los mismos individuos.
+
+# De acuerdo a lo ejecutado podemos responder la siguiente pregunta: 
+
+ el mejor fitness **puede disminuir** de una generación a otra cuando no hay elitismo, porque nada protege al mejor individuo de perderse en el proceso de selección/cruce/mutación. Con elitismo, la curva de mejor fitness es monótona no decreciente por construcción. La diferencia suele ser más notoria con poblaciones pequeñas o tasas de mutación altas, donde es más fácil que el mejor individuo "se pierda" entre generaciones.
+
+
