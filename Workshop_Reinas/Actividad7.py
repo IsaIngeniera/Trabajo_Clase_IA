@@ -40,12 +40,14 @@ def random_restart_hill_climbing(max_restarts=50, max_steps=100):
             
     return best_overall_state, best_overall_history, restarts_used
 
-best_state, best_history, restarts = random_restart_hill_climbing()
+if __name__ == "__main__":
+    best_state, best_history, restarts = random_restart_hill_climbing()
 
-print("Mejor estado:", best_state)
-print("Costo:", cost(best_state))
-print("Reinicios utilizados:", restarts)
+    print("Mejor estado:", best_state)
+    print("Costo:", cost(best_state))
+    print("Reinicios utilizados:", restarts)
 
-plot_board(best_state, f"Random Restart — costo {cost(best_state)}")
-plot_cost_history(best_history, "Mejor ejecución de Random Restart")
-plt.show()
+    plot_board(best_state, f"Random Restart — costo {cost(best_state)}")
+    plot_cost_history(best_history, "Mejor ejecución de Random Restart")
+    plt.show()
+ 

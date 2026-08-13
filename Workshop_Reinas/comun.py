@@ -6,7 +6,7 @@ from matplotlib.colors import ListedColormap
 cmap = ListedColormap(["#F0D9B5", "#B58863"])
 
 N = 4
-SEED = 42
+SEED =42
 random.seed(SEED)
 
 def plot_board(state, title=None):
@@ -30,5 +30,7 @@ def plot_board(state, title=None):
 
     plt.imshow(board, cmap=cmap)
 
-example_state = [1, 3, 0, 2]
-plot_board(example_state, title=f"Estado {example_state}")
+if __name__ == "__main__":
+    example_state = [1, 3, 0, 2]
+    plot_board(example_state, title=f"Estado {example_state}")
+    plt.show()
