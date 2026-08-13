@@ -1,4 +1,4 @@
-# Explicación de las actividades 1 y 2
+# Explicación de las actividades de algoritmo genetico
 
 ## Actividad 1: Selección por ruleta
 
