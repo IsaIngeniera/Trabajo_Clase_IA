@@ -76,7 +76,7 @@ En la práctica esto significa:
 - **Con elitismo**: convergencia más rápida y estable, la curva de "mejor fitness" es monótona no decreciente. Riesgo: puede favorecer convergencia prematura si el "elite" domina la población.
 - **Sin elitismo**: la curva de "mejor fitness" puede tener caídas temporales (oscila), y en promedio se necesitan más generaciones para alcanzar el óptimo, aunque también se mantiene algo más de diversidad genética al no proteger siempre a los mismos individuos.
 
-# De acuerdo a lo ejecutado podemos responder la siguiente pregunta: 
+ De acuerdo a lo ejecutado podemos responder la siguiente pregunta: 
 
  el mejor fitness **puede disminuir** de una generación a otra cuando no hay elitismo, porque nada protege al mejor individuo de perderse en el proceso de selección/cruce/mutación. Con elitismo, la curva de mejor fitness es monótona no decreciente por construcción. La diferencia suele ser más notoria con poblaciones pequeñas o tasas de mutación altas, donde es más fácil que el mejor individuo "se pierda" entre generaciones.
 
