@@ -80,4 +80,20 @@ En la práctica esto significa:
 
  el mejor fitness **puede disminuir** de una generación a otra cuando no hay elitismo, porque nada protege al mejor individuo de perderse en el proceso de selección/cruce/mutación. Con elitismo, la curva de mejor fitness es monótona no decreciente por construcción. La diferencia suele ser más notoria con poblaciones pequeñas o tasas de mutación altas, donde es más fácil que el mejor individuo "se pierda" entre generaciones.
 
+## Preguntas de cierre: 
+
+### ¿Qué papel cumple la población que no existe en Hill Climbing?
+Hill Climbing usa un solo punto y puede quedar atrapado en un óptimo local. La población da múltiples soluciones explorando a la vez, permite mantener diversidad y da "material" para que el cruce combine buenas ideas de distintos individuos.
+
+### ¿Por qué el cruce no garantiza hijos mejores que sus padres?
+Combina fragmentos de los padres sin evaluar antes si la combinación es buena. Puede romper buenas secuencias de genes o mezclar partes que no funcionan bien juntas. Solo en promedio, a lo largo de muchas generaciones, tiende a mejorar la población.
+
+### ¿Qué significa convergencia prematura?
+Cuando la población pierde diversidad muy rápido y se estanca en un óptimo local antes de llegar al óptimo global, generalmente por presión de selección alta o mutación muy baja.
+
+### ¿Qué parámetros controlan la exploración?
+- Tasa de mutación (principal motor de exploración)
+- Tamaño de población (más cobertura del espacio)
+- Tamaño del torneo (torneos pequeños = más exploración, grandes = más explotación)
+- Elitismo (mucho elitismo reduce exploración)
 
