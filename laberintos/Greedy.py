@@ -1,5 +1,5 @@
 import heapq
-from laberintos.comun import maze1, Node, reconstruct_path
+from comun import maze1, Node, reconstruct_path
 
 start = maze1.start
 goal = maze1.goal
