@@ -161,15 +161,16 @@ def show_frame(env, title=''):
     display(plt.gcf())
     plt.close()
 
-env = gym.make(
-    "FrozenLake-v1",
-    map_name="4x4",
-    is_slippery=False,
-    render_mode="rgb_array"
-)
+if __name__ == "__main__":
+    env = gym.make(
+        "FrozenLake-v1",
+        map_name="4x4",
+        is_slippery=False,
+        render_mode="rgb_array"
+    )
 
-state, info = env.reset()
+    state, info = env.reset()
 
-print("Estado inicial:", state)
-print("Número de estados:", env.observation_space.n)
-print("Número de acciones:", env.action_space.n)
+    print("Estado inicial:", state)
+    print("Número de estados:", env.observation_space.n)
+    print("Número de acciones:", env.action_space.n)
