@@ -14,10 +14,20 @@ Rama donde encontrara la tarea 1:
 Rama donde encontrara la tarea 2:  
 - branch Tarea-2
 
+Rama donde encontrara la tarea 3:  
+- branch Tarea-3
+
+Rama donde encontrara la tarea 4:  
+- branch Tarea-4
+
+Rama donde encontrara la tarea 5:  
+- branch Tarea-5
+
+
 ## Autores
-* Juan Manual Hernandez
 * Maria Laura Tafur
-* Andres Eusse
+* Andres Felipe Eusse
+* Juan Manuel Hernandez
 * Isabella Ocampo Sánchez
 
 ## Derechos de Autor
