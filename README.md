@@ -23,6 +23,8 @@ Rama donde encontrara la tarea 4:
 Rama donde encontrara la tarea 5:  
 - branch Tarea-5
 
+Rama donde encontrara la tarea 6:  
+- branch Tarea-6
 
 ## Autores
 * Maria Laura Tafur
